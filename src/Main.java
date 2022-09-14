@@ -1,13 +1,13 @@
-import com.sun.jdi.DoubleType;
-
 import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(sqrt(16));
+        UnaryOperator<Double> a = sqrt();
+        System.out.println(a.apply(16.0));
+        System.out.println(a.apply(144.0));
     }
-    public static double sqrt(double num){
-        UnaryOperator<Double> method = Math::sqrt;
-        return method.apply(num);
+
+    public static UnaryOperator<Double> sqrt() {
+        return Math::sqrt;
     }
 }
